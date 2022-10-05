@@ -39,9 +39,9 @@ public class BrandController {
     }
 
     @PostMapping("/brand")
-    public String addBrand(@RequestBody Brand brand){
+    ResponseEntity<Brand> addBrand(@RequestBody Brand brand){
         brandRepo.save(brand);
-        return "Saved..";
+        return ResponseEntity.ok().body(brand);
     }
     
     @PutMapping("/brand/{id}")
